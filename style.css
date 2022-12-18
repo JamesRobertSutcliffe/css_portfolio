@@ -16,6 +16,8 @@ body {
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.5;
+  background-color: var(--light);
+
  
 }
 
@@ -35,6 +37,7 @@ p {
 /* HEADER */
 
 header {
+  margin: 2px 2px 0 2px;
   padding: 15px 0 15px 0;
   display: flex;
   flex-direction: row;
@@ -77,8 +80,9 @@ header h1 {
 }
 
 .hero-banner {
+  margin: 0 2px;
   background-color: rgba(68,88, 212);
-  background-image: url(../images/02-hero-bg.jpg); 
+  background-image: url(images/02-hero-bg.jpg); 
   background-size: cover;
   background-position: center;
   min-height: 30vh;
@@ -99,22 +103,27 @@ padding: 5px;
 
 .page-wrapper {
   max-width: 88%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 5px;
 }
 
-.page-section {
-  margin: 25px 0;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: space-between;
+.page-section_1 {
+  margin: 10px;
+  display: grid;
+  /* height: 800px; */
+  min-width: 300px;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr ;
+grid-template-areas: 
+'side1 aboutme';
 }
 
-.page-section > h2 {
- flex: 0 0 20px;
+.about-me-text {
+  grid-area: aboutme;
+  margin: 20px;
+}
+
+.about-me {
+ grid-area: side1;
  text-align: right;
  padding-left: 30px;
  padding-right: 15px;
@@ -132,58 +141,123 @@ padding: 5px;
 
 }
 
-.flex-container {
-  display: flex;
-  justify-content: space-around;
-  align-content: flex-start;
-  flex-wrap: wrap;
+/* Portfolio */
+
+.page-section2{
+  margin: 10px;
+  padding-top: 20px;
+  display: grid;
+  height: 800px;
+  min-width: 300px;
+  grid-template-columns: 20% 40% 40%;
+  grid-template-rows: 400px 200px 200px;
+grid-template-areas: 
+'side top top'
+'side tl tr'
+'side bl br';
 }
 
-.flex-container2 {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: flex-start;
+.page-section2 a {
+  border: 4px solid var(--secondary);
 }
 
-.flex-item {
-border: 5px solid var(--secondary);
-background-color: var(--primary);
-color: var(--tertiary);
-min-height: 400px;
-max-width: 600px;
-flex-basis: 50%;
-display: flex;
-align-items: flex-start;
-padding: 50px;
-margin: 0.5em;
-align-items: center;
-justify-content: center;
+.inner-title {
 
-}
-.flex-item-1 {
-  border: 5px solid var(--secondary);
-  background-color: var(--primary);
+  padding: 15px;
+  margin: 10px;
+  background-color: var(--secondary);
   color: var(--tertiary);
-  min-height: 600px;
-  /* max-width: 250px; */
-  flex-basis: 100%;
-  display: flex;
-  align-items: flex-start;
-  padding: 50px;
-  margin: 0.5em;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  background-blend-mode: soft-light;
-  background-size: 150%;
+
 }
 
-/* .page-section p {
-  margin: 10px 0;
-  padding: 10px 0;
-  width: 75%;
-  justify-content: flex-end;
-  align-content: right;
-} */
+.work {
+  grid-area: side;
+  text-align: right;
+  padding-left: 30px;
+  padding-right: 15px;
+  border-right: 4px solid var(--primary);
+  font-size: 2vw;
+  line-height: 1.1;
+ }
+
+.top {
+  grid-area: top;
+  background-image: url(images/02-portfolio-1.jpg);
+  display: flex;
+  margin: 10px;
+  justify-content: flex-start;
+  align-items: end;
+}
+
+.tl {
+  grid-area: tl;
+  background-image: url(images/02-portfolio-2.jpg);
+  display: flex;
+  margin: 10px; 
+  justify-content: flex-start;
+  align-items: end;
+}
+
+.tr {
+  grid-area: tr;
+  background-image: url(images/02-portfolio-3.jpg);
+  display: flex;
+  margin: 10px;
+  justify-content: flex-start;
+  align-items: end;
+}
+
+.bl {
+  grid-area: bl;
+  background-image: url(images/02-portfolio-4.jpg);
+  display: flex;
+  margin: 10px;
+  justify-content: flex-start;
+  align-items: end;
+}
+
+.br {
+  grid-area: br;
+  background-image: url(images/02-run-buddy.jpg);
+  display: flex;
+  margin: 10px;
+  justify-content: flex-start;
+  align-items: end;
+}
+
+/* Contact me */
 
 
+.page-section_3 {
+  padding-top: 20px;
+  margin: 10px;
+  display: grid;
+  min-width: 300px;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 1fr ;
+grid-template-areas: 
+'side3 contact';
+}
+
+.contact-me {
+  grid-area: side3;
+  text-align: right;
+  padding-left: 30px;
+  padding-right: 15px;
+  border-right: 4px solid var(--primary);
+  font-size: 2vw;
+  line-height: 1.1;
+ }
+
+ .contact-entries {
+  grid-area: contact;
+  margin: 20px;
+  justify-content: space-between;
+
+}
+
+.contact-entries address {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
